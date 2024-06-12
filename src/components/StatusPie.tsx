@@ -1,7 +1,9 @@
 import { Pie } from "react-chartjs-2";
-import { Chart, ArcElement } from "chart.js";
+import { Chart, ArcElement, LayoutPosition } from "chart.js";
+import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 Chart.register(ArcElement);
+Chart.register(ChartDataLabels);
 
 interface Application {
   Date: string;
@@ -19,6 +21,7 @@ const StatusPie: React.FC<StatusPieProps> = ({ applicationData }) => {
     acc[curr.Status] = (acc[curr.Status] || 0) + 1;
     return acc;
   }, {});
+  const totalCount = Object.values(statusCounts).reduce((a, b) => a + b, 0);
 
   const data = {
     labels: Object.keys(statusCounts),
@@ -27,7 +30,32 @@ const StatusPie: React.FC<StatusPieProps> = ({ applicationData }) => {
       backgroundColor: ['#7c00ff', '#06b000', '#e6c200', '#0df0df', '#a24aff'], // 5 status: nope, ghost, interview, takehome, pending
     }],
   };
-  
-  return <Pie data={data} />;
+
+  const options = {
+    responsive: true,
+    plugins: {
+      title: {
+        display: true,
+        text: 'Results',
+        color: '#fff',
+      },
+      legend: {
+        display: true,
+        position: 'right' as LayoutPosition,
+        labels: {
+          boxWidth: 20,
+          padding: 10
+        }
+      },
+      datalabels: {
+        color: '#fff',
+        formatter: (value: number, context: any) => {
+          return context.chart.data.labels[context.dataIndex];
+        },
+      }
+    }
+  }
+
+return <Pie data={data} options={options} />;
 }
 export default StatusPie;

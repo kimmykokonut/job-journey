@@ -31,3 +31,9 @@ body {
     text-wrap: balance;
   }
 }
+
+.dataCard {
+  border: 1px solid white;
+  margin: 5%;
+  padding: 5%;
+}
