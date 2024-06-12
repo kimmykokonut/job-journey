@@ -13,6 +13,7 @@ _by [Kim Robinson](https://github.com/kimmykokonut)_
   * <a href="#prerequisites">Prerequisites</a>
   * <a href="#setup">Setup</a>
 * <a href="#stretch-goals">Stretch Goals</a>
+* <a href="#contact-and-support">Contact and Support</a>
 * <a href="#license">License</a>
 ---
 
@@ -98,8 +99,14 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 * Link to form to add new data-create form
 * Display data as table
 
+## Contact and Support
+
+If you have any feedback or concerns, 
+[Report Bug](https://github.com/kimmykokonut/job-journey/issues)
+[Request Feature](https://github.com/kimmykokonut/job-journey/issues)
+
 ## License
-MIT License, see license.md for details
+GNU General Public License, see license.md for details
 
 
 --------------
