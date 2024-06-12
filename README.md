@@ -28,9 +28,8 @@ Built out of a desire to lighten the frustration with the saturated Junior Devel
 
 ## Built With
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-![Next JS]('https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white')
-![D3]('update')
+![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
+![D3](https://img.shields.io/badge/d3%20js-F9A03C?style=for-the-badge&logo=d3.js&logoColor=white)
 ![Chart.js](https://img.shields.io/badge/chart.js-F5788D.svg?style=for-the-badge&logo=chart.js&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
@@ -89,7 +88,11 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## CSV
 
-- to come
+- If you would like to use your own spreadsheet data, title your columns: `Date	Company	Postition	Source	Status`
+- I used google sheets: to download the cells as a .csv,
+  1. >File>Download>Comma separated values(.csv)
+  2. Move .csv file into the public folder of this repository
+  3. In page.tsx, line 19, update the file to match your file name and the d3 function will convert the .csv to an object for the charts to use.
 
 ## Stretch Goals
 * Add pie chart labels
