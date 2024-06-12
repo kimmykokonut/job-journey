@@ -16,21 +16,21 @@ _by [Kim Robinson](https://github.com/kimmykokonut)_
 * <a href="#license">License</a>
 ---
 
-![Homepage screenshot](./src/assets/img/map.png)
+![Homepage screenshot here](./src/assets/img/map.png)
 
 ---
 
 ## About the Project
 
 ## Description
-Built out of a desire to not be frustrated with the saturated Junior Developer market and to continue learning new skills. Job journey is a simple application where a user can enter their job search details into a form and see the results in a chart form or table form.
+Built out of a desire to lighten the frustration with the saturated Junior Developer market and to continue learning new technology. Job journey is a simple application where a user can enter their job search details into a form and see the results in a chart form or table form.
 
 ## Built With
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-![NextJS]('update me')
+![Next JS]('https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white')
 ![D3]('update')
-![ChartJS]('update')
+![Chart.js](https://img.shields.io/badge/chart.js-F5788D.svg?style=for-the-badge&logo=chart.js&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
 ![Markdown](https://img.shields.io/badge/Markdown-000000?style=for-the-badge&logo=markdown&logoColor=white)
@@ -91,8 +91,12 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - to come
 
 ## Stretch Goals
-* Display as table
-* Link to form to add new data
+* Add pie chart labels
+* Add bar chart
+* Add line graph
+* Style to be responsive
+* Link to form to add new data-create form
+* Display data as table
 
 ## License
 MIT License, see license.md for details

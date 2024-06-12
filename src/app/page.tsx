@@ -1,6 +1,34 @@
-import Image from "next/image";
+'use client'
+
+import { useEffect, useState } from "react";
+import * as d3 from "d3";
+import StatusPie from "@/components/StatusPie";
+
+interface Application {
+  Date: string;
+  Company: string;
+  Position: string;
+  Source: string;
+  Status: string;
+}
 
 export default function Home() {
+  const [applicationData, setApplicationData] = useState<Application[]>([]);
+
+  useEffect(() => {
+    d3.csv('/application-data.csv')
+      .then((data: d3.DSVRowArray<string>) => {
+        const parsedData: Application[] = data.map((row) => ({
+          Date: row.Date,
+          Company: row.Company,
+          Position: row.Position,
+          Source: row.Source,
+          Status: row.Status,
+        }));
+        setApplicationData(parsedData);
+      });
+  }, []);
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
@@ -30,10 +58,23 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          {/* add link to form */}
-          <h4>Add data</h4>
+          {/* add link to form, create form */}
+          <h4>Add data button</h4>
         </a>
-        <p>Charts go here</p>
+        <hr />
+        <div className="dataCard resultsPie">
+          <StatusPie applicationData={applicationData} />
+        </div>
+        <hr />
+        <div className="dataCard titlesBar">
+          <p>Bar graph of job titles here</p>
+        </div>
+        <hr />
+        <div className="dataCard dateLine">
+          <p>Line graph of weekly count over time</p>
+        </div>
+        <hr />
+        <p>See data as a boring chart link</p>
       </div>
     </main>
   );
