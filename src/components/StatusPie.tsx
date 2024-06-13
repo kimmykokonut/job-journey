@@ -1,9 +1,8 @@
 import { Pie } from "react-chartjs-2";
-import { Chart, ArcElement, LayoutPosition } from "chart.js";
+import { Chart, ArcElement, LayoutPosition, Title } from "chart.js";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
-Chart.register(ArcElement);
-Chart.register(ChartDataLabels);
+Chart.register(ArcElement, ChartDataLabels, Title);
 
 interface Application {
   Date: string;
@@ -36,15 +35,20 @@ const StatusPie: React.FC<StatusPieProps> = ({ applicationData }) => {
     plugins: {
       title: {
         display: true,
-        text: 'Results',
+        text: "Employer Response",
+        align: "center",
         color: '#fff',
+        padding: {
+          top: 10,
+          bottom: 30,
+        },
       },
       legend: {
         display: true,
         position: 'right' as LayoutPosition,
         labels: {
           boxWidth: 20,
-          padding: 10
+          padding: 10,
         }
       },
       datalabels: {
