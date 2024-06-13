@@ -20,6 +20,7 @@ const StatusPie: React.FC<StatusPieProps> = ({ applicationData }) => {
     acc[curr.Status] = (acc[curr.Status] || 0) + 1;
     return acc;
   }, {});
+
   const totalCount = Object.values(statusCounts).reduce((a, b) => a + b, 0);
 
   const data = {
@@ -54,7 +55,9 @@ const StatusPie: React.FC<StatusPieProps> = ({ applicationData }) => {
       datalabels: {
         color: '#fff',
         formatter: (value: number, context: any) => {
-          return context.chart.data.labels[context.dataIndex];
+          const label = context.chart.data.labels[context.dataIndex];
+          const percent = (value / totalCount * 100).toFixed(0);
+          return `${label}: ${percent}%`; 
         },
       }
     }

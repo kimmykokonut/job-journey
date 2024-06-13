@@ -29,6 +29,10 @@ export default function Home() {
       });
   }, []);
 
+  const totalApplications = applicationData.length;
+  const firstDate = applicationData[0].Date;
+  console.log(applicationData);
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
@@ -62,6 +66,7 @@ export default function Home() {
           <h4>Add data button</h4>
         </a>
         <hr />
+        <p>{totalApplications} Applications since: {firstDate}</p>
         <div className="dataCard resultsPie">
           <StatusPie applicationData={applicationData} />
         </div>
