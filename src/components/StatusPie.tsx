@@ -1,5 +1,5 @@
 import { Pie } from "react-chartjs-2";
-import { Chart, ArcElement, LayoutPosition, Title } from "chart.js";
+import { Chart, ArcElement, LayoutPosition, Title, ChartOptions } from "chart.js";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 Chart.register(ArcElement, ChartDataLabels, Title);
@@ -31,13 +31,13 @@ const StatusPie: React.FC<StatusPieProps> = ({ applicationData }) => {
     }],
   };
 
-  const options = {
+  const options: ChartOptions<"pie"> = {
     responsive: true,
     plugins: {
       title: {
         display: true,
         text: "Employer Response",
-        align: "center",
+        align: 'center',
         color: '#fff',
         padding: {
           top: 10,
