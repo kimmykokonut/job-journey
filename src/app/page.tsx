@@ -3,7 +3,9 @@
 import { useEffect, useState } from "react";
 import * as d3 from "d3";
 import StatusPie from "@/components/StatusPie";
+import AddApplication from "@/components/add-application";
 import quotes from "./quotes";
+import Link from "next/link";
 
 interface Application {
   Date: string;
@@ -17,6 +19,7 @@ export default function Home() {
   const [applicationData, setApplicationData] = useState<Application[]>([]);
   const [quote, setQuote] = useState('');
   const [author, setAuthor] = useState('');
+  const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
     d3.csv('/application-data.csv')
@@ -67,25 +70,26 @@ export default function Home() {
         <h6 className="text-sm italic">{quote} -{author}</h6>
       </div>
 
+      <div className="text-align-left">
+        {!showForm && (
+          <button
+            onClick={() => setShowForm(!showForm)}
+            className="group rounded-lg border border-white m-3 px-1 py-1 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
+            Enter new job application data
+          </button>
+        )}
+        {showForm && <AddApplication />}
+      </div>
+
       <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {/* add link to form, create form */}
-          <h4>Add data button</h4>
-        </a>
-        <hr />
         <p>{totalApplications} Applications since: {firstDate}</p>
-        <div className="dataCard resultsPie">
+        <div className="dataCard resultsPie border rounded">
           <StatusPie applicationData={applicationData} />
         </div>
-        <div className="dataCard titlesBar">
+        <div className="dataCard titlesBar border rounded">
           <p>Bar graph of job titles here</p>
         </div>
-        <div className="dataCard dateLine">
+        <div className="dataCard dateLine border rounded">
           <p>Line graph of weekly count over time</p>
         </div>
         <hr />

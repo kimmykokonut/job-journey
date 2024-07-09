@@ -37,3 +37,8 @@ body {
   margin: 5%;
   padding: 5%;
 }
+
+input {
+  color: black;
+  padding-left: 5px;
+}
