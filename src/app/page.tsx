@@ -5,7 +5,6 @@ import * as d3 from "d3";
 import StatusPie from "@/components/StatusPie";
 import AddApplication from "@/components/add-application";
 import quotes from "./quotes";
-import Link from "next/link";
 
 interface Application {
   Date: string;
@@ -48,6 +47,10 @@ export default function Home() {
     setAuthor(randomQuote.author);
   }
 
+  const addApplication = (newApplication: Application) => {
+    setApplicationData([...applicationData, newApplication]);
+  };
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
@@ -77,23 +80,26 @@ export default function Home() {
             {showForm ? 'Exit form' : 'Enter new job application data'}
           </button>
         </div>
-        {showForm && <AddApplication />}
+        {showForm && <AddApplication onAddApplication={addApplication}/>}
       </div>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <p>{totalApplications} Applications since: {firstDate}</p>
-        <div className="dataCard resultsPie border rounded">
+      <p>{totalApplications} Applications since: {firstDate}</p>
+    
+        <div className="flexContainer mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
+        <div className="dataCard resultsPie border rounded" style={{ minWidth: '300px', minHeight: '300px', maxWidth: '100%', maxHeight: '100%' }}>
           <StatusPie applicationData={applicationData} />
         </div>
-        <div className="dataCard titlesBar border rounded">
+        <div className="dataCard titlesBar border rounded" style={{ minWidth: '300px', minHeight: '300px', maxWidth: '100%', maxHeight: '100%' }}>
           <p>Bar graph of job titles here</p>
         </div>
-        <div className="dataCard dateLine border rounded">
+        <div className="dataCard dateLine border rounded" style={{ minWidth: '300px', minHeight: '300px', maxWidth: '100%', maxHeight: '100%' }}>
           <p>Line graph of weekly count over time</p>
         </div>
-        <hr />
+        
         <p>See data as a boring chart link</p>
+
       </div>
+      
     </main>
   );
 }

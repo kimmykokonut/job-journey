@@ -26,19 +26,32 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-@layer utilities {
+/* @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
-}
+} */
 
 .dataCard {
   border: 1px solid white;
-  margin: 5%;
-  padding: 5%;
+  margin: 1rem;
+  padding: 1rem;
+}
+
+.flexContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .flexContainer {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 }
 
 input {
-  color: black;
   padding-left: 5px;
 }
