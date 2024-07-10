@@ -90,19 +90,20 @@ export default function AddApplication({ onAddApplication }: AddApplicationProps
           className="border rounded flex-grow text-black"
           required>
           <option value="">Select a job title</option>
-          <option value="apprentice">Apprenticeship</option>
-          <option value="associateSoftwareEng">Associate Software Engineer</option>
-          <option value="backSoftwareDev">Backend Software Developer</option>
-          <option value="inter">Internship</option>
-          <option value="juniorDev">Junior Developer</option>
-          <option value="juniorFullstack">Junior Fullstack Software</option>
-          <option value="juniorSoftwareEng">Junior Software Engineer</option>
-          <option value="juniorWebDev">Junior Web Developer</option>
-          <option value="qa">QA Engineer</option>
-          <option value="softwareDev">Software Developer</option>
-          <option value="softwareEng">Software Engineer</option>
-          <option value="webDev">Web Developer</option>
-          <option value="other">Other</option>
+          <option value="Apprenticeship">Apprenticeship</option>
+          <option value="Associate Software Engineer">Associate Software Engineer</option>
+          <option value="Backend Software Developer">Backend Software Developer</option>
+          <option value="Fullstack Software Engineer">Fullstack Software Engineer</option>
+          <option value="Internship">Internship</option>
+          <option value="Junior Developer">Junior Developer</option>
+          <option value="Junior Fullstack Software">Junior Fullstack Software</option>
+          <option value="Junior Software Engineer">Junior Software Engineer</option>
+          <option value="Junior Web Developer">Junior Web Developer</option>
+          <option value="QA Engineer">QA Engineer</option>
+          <option value="Software Developer">Software Developer</option>
+          <option value="Software Developer">Software Developer</option>
+          <option value="Web Developer">Web Developer</option>
+          <option value="Other">Other</option>
         </select>
       </div>
       <div className="flex items-center mb-1">

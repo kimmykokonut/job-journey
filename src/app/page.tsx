@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import * as d3 from "d3";
 import StatusPie from "@/components/StatusPie";
+import TitleBar from "@/components/TitleBar";
 import AddApplication from "@/components/add-application";
 import quotes from "./quotes";
 
@@ -90,13 +91,12 @@ export default function Home() {
           <StatusPie applicationData={applicationData} />
         </div>
         <div className="dataCard titlesBar border rounded" style={{ minWidth: '400px', minHeight: '400px', maxWidth: '100%', maxHeight: '100%' }}>
-          <p>Bar graph of job titles here</p>
+          <TitleBar applicationData={applicationData}/>
         </div>
         <div className="dataCard dateLine border rounded" style={{ minWidth: '400px', minHeight: '400px', maxWidth: '100%', maxHeight: '100%' }}>
-          <p>Line graph of weekly count over time</p>
+          <TitleBar applicationData={applicationData} />
         </div>
         
-
       </div>
       <p>See data as a boring chart link</p>
 
