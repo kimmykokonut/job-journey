@@ -6,6 +6,7 @@ import StatusPie from "@/components/StatusPie";
 import TitleBar from "@/components/TitleBar";
 import AddApplication from "@/components/add-application";
 import quotes from "./quotes";
+import { split } from "postcss/lib/list";
 
 interface Application {
   Date: string;
@@ -26,9 +27,11 @@ export default function Home() {
       .then((data: d3.DSVRowArray<string>) => {
         const parsedData: Application[] = data.map((row) => {
           const statusArray = row.Status ? [row.Status] : [];
-          
+          const splitDate = row.Date.split('/');
+          const standardizedDate = `${splitDate[2]}-${splitDate[0].padStart(2, '0')}-${splitDate[1].padStart(2, '0')}`;
+
           return {
-            Date: row.Date,
+            Date: standardizedDate,
             Company: row.Company,
             Position: row.Position,
             Source: row.Source,
