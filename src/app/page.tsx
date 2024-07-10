@@ -24,13 +24,17 @@ export default function Home() {
   useEffect(() => {
     d3.csv('/application-data.csv')
       .then((data: d3.DSVRowArray<string>) => {
-        const parsedData: Application[] = data.map((row) => ({
-          Date: row.Date,
-          Company: row.Company,
-          Position: row.Position,
-          Source: row.Source,
-          Status: row.Status,
-        }));
+        const parsedData: Application[] = data.map((row) => {
+          const statusArray = row.Status ? [row.Status] : [];
+          
+          return {
+            Date: row.Date,
+            Company: row.Company,
+            Position: row.Position,
+            Source: row.Source,
+            Status: statusArray,
+          };
+        });
         setApplicationData(parsedData);
       });
   }, []);
@@ -38,6 +42,8 @@ export default function Home() {
   useEffect(() => {
     getRandomQuote();
   }, []);
+
+  console.log(applicationData);
 
   const totalApplications = applicationData.length;
   const firstDate = applicationData.length > 0 ? applicationData[0].Date : '';

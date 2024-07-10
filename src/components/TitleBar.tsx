@@ -28,9 +28,8 @@ const TitleBar: React.FC<AppProps> = ({ applicationData }) => {
   const data = {
     labels: Object.keys(positionCount),
     datasets: [{
-      // label: 'Job title occurrences',
       data: Object.values(positionCount),
-      backgroundColor: ['#7c00ff', '#06b000', '#e6c200', '#0df0df', '#a24aff', '#1166a3'], // #position titles?
+      backgroundColor: ['#7c00ff', '#06b000', '#e6c200', '#0df0df', '#a24aff', '#1166a3'], 
     }],
   };
 
