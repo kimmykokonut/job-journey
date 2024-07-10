@@ -11,7 +11,7 @@ interface Application {
   Company: string;
   Position: string;
   Source: string;
-  Status: string;
+  Status: string[];
 }
 
 export default function Home() {
@@ -85,7 +85,7 @@ export default function Home() {
 
       <p>{totalApplications} Applications since: {firstDate}</p>
     
-        <div className="flexContainer mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
+        <div className="flexContainer mb-32 text-center lg:mb-0">
         <div className="dataCard resultsPie border rounded" style={{ minWidth: '300px', minHeight: '300px', maxWidth: '100%', maxHeight: '100%' }}>
           <StatusPie applicationData={applicationData} />
         </div>
@@ -96,10 +96,10 @@ export default function Home() {
           <p>Line graph of weekly count over time</p>
         </div>
         
-        <p>See data as a boring chart link</p>
 
       </div>
-      
+      <p>See data as a boring chart link</p>
+
     </main>
   );
 }

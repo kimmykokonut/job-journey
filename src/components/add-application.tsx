@@ -1,41 +1,39 @@
 import { useState } from "react";
 
+interface ApplicationFormData {
+  Date: string;
+  Company: string;
+  Position: string;
+  Source: string;
+  Status: string[];
+}
+
 interface AddApplicationProps {
-  onAddApplication: (formData: {
-    Date: string;
-    Company: string;
-    Position: string;
-    Source: string;
-    Status: Array<string>;
-  }) => void;
+  onAddApplication: (formData: ApplicationFormData) => void;
 }
 
 export default function AddApplication({ onAddApplication }: AddApplicationProps) {
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<ApplicationFormData>({
     Date: '',
     Company: '',
     Position: '',
     Source: '',
-    Status: ['applied'],
-  });
-  const [checkedStatus, setCheckedStatus] = useState({
-    applied: true,
-    ghosted: false,
-    interview: false,
-    no: false,
-    test: false,
-    yest: false,
-    other: false,
+    Status: [],
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLSelectElement>) => {
     const { name, value, type } = e.target;
 
-    if (type === "checkbox") {
-      const target = e.target as HTMLInputElement;
-      setFormData({
-        ...formData,
-        [name]: target.checked,
+    if (type === "checkbox" && e.target instanceof HTMLInputElement) {
+      const { checked } = e.target;
+      setFormData(prevFormData => {
+        const currentStatus = Array.isArray(prevFormData.Status) ? prevFormData.Status : [];
+        if (checked) {
+          return { ...prevFormData, Status: [...currentStatus, value] };
+          // use this for edit form later to update status!
+        } else {
+          return { ...prevFormData, Status: currentStatus.filter(status => status !== value) };
+        }
       });
     } else {
       setFormData({
@@ -54,40 +52,41 @@ export default function AddApplication({ onAddApplication }: AddApplicationProps
       Company: '',
       Position: '',
       Source: '',
-      Status: ['applied']
-    });  }
+      Status: []
+    });
+  }
 
   return (
     <form onSubmit={handleSubmit} className="my-3 border p-3 rounded space-y-3 flex flex-col">
       <div className="flex items-center mb-1">
         <label htmlFor="date" className="mr-2 flex-shrink-0">Date applied</label>
-        <input 
-        type="date" 
-        id="date" 
-        name="Date"
-        className="border rounded flex-grow text-black" 
-        value={formData.Date}
-        onChange={handleChange} 
+        <input
+          type="date"
+          id="date"
+          name="Date"
+          className="border rounded flex-grow text-black"
+          value={formData.Date}
+          onChange={handleChange}
           required />
       </div>
       <div className="flex items-center mb-1">
         <label htmlFor="company" className="mr-2 flex-shrink-0">Company name</label>
-        <input 
-        type="text" 
-        id="company" 
-        name="Company"
-        className="border rounded flex-grow text-black" 
-        value={formData.Company}
-        onChange={handleChange} 
+        <input
+          type="text"
+          id="company"
+          name="Company"
+          className="border rounded flex-grow text-black"
+          value={formData.Company}
+          onChange={handleChange}
           required />
       </div>
       <div className="flex items-center mb-1">
         <label htmlFor="position" className="mr-2 flex-shrink-0">Title</label>
-        <select 
-        id="position" 
-        name="Position"
-        value={formData.Position}
-          onChange={handleChange}        
+        <select
+          id="position"
+          name="Position"
+          value={formData.Position}
+          onChange={handleChange}
           className="border rounded flex-grow text-black"
           required>
           <option value="">Select a job title</option>
@@ -108,13 +107,13 @@ export default function AddApplication({ onAddApplication }: AddApplicationProps
       </div>
       <div className="flex items-center mb-1">
         <label htmlFor="source" className="mr-2 flex-shrink-0">Source</label>
-        <select 
-        id="source" 
-        name="Source"
+        <select
+          id="source"
+          name="Source"
           value={formData.Source}
-          onChange={handleChange}   
-        className="border rounded flex-grow text-black"
-        required>
+          onChange={handleChange}
+          className="border rounded flex-grow text-black"
+          required>
           <option value="">Where did you find this job post?</option>
           <option value="glassdoor">Glassdoor</option>
           <option value="indeed">Indeed</option>
@@ -133,20 +132,48 @@ export default function AddApplication({ onAddApplication }: AddApplicationProps
       <div className="flex items-center mb-1">
         <label htmlFor="status" className="mr-2 flex-shrink-0">Status</label>
         <div className="border rounded flex-grow p-2">
-          <label className="mr-3"><input
-            type="checkbox" name="Status" value="applied" onChange={handleChange} checked/>Applied</label>
-          <label className="mr-3"><input
-            type="checkbox" name="Status" value="ghosted" onChange={handleChange} />Ghosted</label>
-          <label className="mr-3"><input
-            type="checkbox" name="Status" value="interview" onChange={handleChange} />Interview</label>
-          <label className="mr-3"><input
-            type="checkbox" name="Status" value="no" onChange={handleChange} />Nope</label>
-          <label className="mr-3"><input
-            type="checkbox" name="Status" value="test" onChange={handleChange} />Take-home test</label>
-          <label className="mr-3"><input
-            type="checkbox" name="Status" value="yes" onChange={handleChange} />Hired!</label>
-          <label className="mr-3"><input
-            type="checkbox" name="Status" value="other" onChange={handleChange} />Other</label>
+          <label className="mr-3">
+            <input
+              type="checkbox"
+              name="Status"
+              value="Ghosted"
+              onChange={handleChange}
+              checked={formData.Status.includes("Ghosted")} />Ghosted</label>
+          <label className="mr-3">
+            <input
+              type="checkbox"
+              name="Status"
+              value="Interview"
+              onChange={handleChange}
+              checked={formData.Status.includes("Interview")} />Interview</label>
+          <label className="mr-3">
+            <input
+              type="checkbox"
+              name="Status"
+              value="Nope"
+              onChange={handleChange}
+              checked={formData.Status.includes("Nope")} />Nope</label>
+          <label className="mr-3">
+            <input
+              type="checkbox"
+              name="Status"
+              value="Take home test"
+              onChange={handleChange}
+              checked={formData.Status.includes("Take home test")} />Take home test</label>
+          <label className="mr-3">
+            <input
+              type="checkbox"
+              name="Status"
+              value="Hired"
+              onChange={handleChange}
+              checked={formData.Status.includes("Hired")} />Hired</label>
+          <label className="mr-3">
+            <input
+              type="checkbox"
+              name="Status"
+              value="Other"
+              onChange={handleChange}
+              checked={formData.Status.includes("Other")} />Other</label>
         </div>
       </div>
       <div className="flex justify-center">

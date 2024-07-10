@@ -9,7 +9,7 @@ interface Application {
   Company: string;
   Position: string;
   Source: string;
-  Status: string;
+  Status: string[];
 }
 interface StatusPieProps {
   applicationData: Application[];
@@ -17,7 +17,10 @@ interface StatusPieProps {
 
 const StatusPie: React.FC<StatusPieProps> = ({ applicationData }) => {
   const statusCounts: { [key: string]: number } = applicationData.reduce((acc: { [key: string]: number }, curr: Application) => {
-    acc[curr.Status] = (acc[curr.Status] || 0) + 1;
+    const statuses = Array.isArray(curr.Status) ? curr.Status : [curr.Status];
+    statuses.forEach(status => {
+      acc[status] = (acc[status] || 0) + 1;
+    });
     return acc;
   }, {});
 
