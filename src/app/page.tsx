@@ -7,6 +7,7 @@ import TitleBar from "@/components/TitleBar";
 import AddApplication from "@/components/add-application";
 import quotes from "./quotes";
 import { split } from "postcss/lib/list";
+import LineGraph from "@/components/LineGraph";
 
 interface Application {
   Date: string;
@@ -103,7 +104,7 @@ export default function Home() {
           <TitleBar applicationData={applicationData}/>
         </div>
         <div className="dataCard dateLine border rounded" style={{ minWidth: '400px', minHeight: '400px', maxWidth: '100%', maxHeight: '100%' }}>
-          <TitleBar applicationData={applicationData} />
+          <LineGraph applicationData={applicationData} />
         </div>
         
       </div>
