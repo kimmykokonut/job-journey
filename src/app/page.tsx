@@ -86,13 +86,13 @@ export default function Home() {
       <p>{totalApplications} Applications since: {firstDate}</p>
     
         <div className="flexContainer mb-32 text-center lg:mb-0">
-        <div className="dataCard resultsPie border rounded" style={{ minWidth: '300px', minHeight: '300px', maxWidth: '100%', maxHeight: '100%' }}>
+        <div className="dataCard resultsPie border rounded" style={{ minWidth: '400px', minHeight: '400px', maxWidth: '100%', maxHeight: '100%' }}>
           <StatusPie applicationData={applicationData} />
         </div>
-        <div className="dataCard titlesBar border rounded" style={{ minWidth: '300px', minHeight: '300px', maxWidth: '100%', maxHeight: '100%' }}>
+        <div className="dataCard titlesBar border rounded" style={{ minWidth: '400px', minHeight: '400px', maxWidth: '100%', maxHeight: '100%' }}>
           <p>Bar graph of job titles here</p>
         </div>
-        <div className="dataCard dateLine border rounded" style={{ minWidth: '300px', minHeight: '300px', maxWidth: '100%', maxHeight: '100%' }}>
+        <div className="dataCard dateLine border rounded" style={{ minWidth: '400px', minHeight: '400px', maxWidth: '100%', maxHeight: '100%' }}>
           <p>Line graph of weekly count over time</p>
         </div>
         
