@@ -59,7 +59,7 @@ const LineGraph: React.FC<AppProps> = ({ applicationData }) => {
     aspectRatio: 1,
     plugins: {
       legend: {
-        display: true,
+        display: false,
       },
       title: {
         display: true,
@@ -67,9 +67,15 @@ const LineGraph: React.FC<AppProps> = ({ applicationData }) => {
       },
       datalabels: {
         display: false,
-        color: '#fff',
       }
     },
+    scales: {
+      x: {
+        ticks: {
+          autoSkip: false,
+        }
+      }
+    }
   }
 
   return <Line data={data} options={options} />;
