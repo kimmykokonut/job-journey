@@ -51,6 +51,10 @@ export default function Home() {
 
   const totalApplications = applicationData.length;
   const firstDate = applicationData.length > 0 ? applicationData[0].Date : '';
+  const date = new Date(firstDate);
+  const dateOptions = { dateStyle: 'long' as const };
+  const formattedFirstDate = new Intl.DateTimeFormat('en-US', dateOptions).format(date);
+  console.log(formattedFirstDate);
 
   function getRandomQuote() {
     const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
@@ -94,7 +98,7 @@ export default function Home() {
         {showForm && <AddApplication onAddApplication={addApplication}/>}
       </div>
 
-      <p>{totalApplications} Applications since: {firstDate}</p>
+      <p>{totalApplications} Applications since: {formattedFirstDate}</p>
     
         <div className="flexContainer mb-32 text-center lg:mb-0">
         <div className="dataCard resultsPie border rounded" style={{ minWidth: '400px', minHeight: '400px', maxWidth: '100%', maxHeight: '100%' }}>
