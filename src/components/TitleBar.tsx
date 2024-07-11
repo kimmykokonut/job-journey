@@ -25,10 +25,18 @@ const TitleBar: React.FC<AppProps> = ({ applicationData }) => {
     return acc;
   }, {});
 
+  const sortedPositions = Object.keys(positionCount).sort((a, b) => {
+    if (a === 'Other') return 1;
+    if (b === 'Other') return -1;
+    return a.localeCompare(b);
+  });
+
+  const sortedData = sortedPositions.map(position => positionCount[position]);
+
   const data = {
-    labels: Object.keys(positionCount),
+    labels: sortedPositions,
     datasets: [{
-      data: Object.values(positionCount),
+      data: sortedData,
       backgroundColor: ['#7c00ff', '#06b000', '#e6c200', '#0df0df', '#a24aff', '#1166a3'], 
     }],
   };

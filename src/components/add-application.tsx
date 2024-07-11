@@ -91,7 +91,7 @@ export default function AddApplication({ onAddApplication }: AddApplicationProps
           required>
           <option value="">Select a job title</option>
           <option value="Apprenticeship">Apprenticeship</option>
-          <option value="Associate Software Engineer">Associate Software Engineer</option>
+          <option value="Assoc. Software Eng">Associate Software Engineer</option>
           <option value="Backend Software Developer">Backend Software Developer</option>
           <option value="Fullstack Software Engineer">Fullstack Software Engineer</option>
           <option value="Internship">Internship</option>

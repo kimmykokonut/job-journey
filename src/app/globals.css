@@ -26,16 +26,14 @@ body {
     rgb(var(--background-start-rgb));
 }
 
-/* @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-} */
-
 .dataCard {
   border: 1px solid white;
-  margin: 1rem;
+  margin: .5rem;
   padding: 1rem;
+  min-width: 400px;
+  min-height: 400px; 
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .flexContainer {
