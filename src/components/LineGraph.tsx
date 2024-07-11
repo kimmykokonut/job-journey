@@ -35,7 +35,7 @@ const LineGraph: React.FC<AppProps> = ({ applicationData }) => {
   const sortedWeeks = Object.keys(applicationsPerWeek).sort();
   const labels = sortedWeeks.map(week => {
     const date = new Date(week);
-    const formattedDate = { month: 'short', day: 'numeric' };
+    const formattedDate = { month: 'short' as const, day: 'numeric' as const };
     return date.toLocaleDateString('en-US', formattedDate);
   });
   const count = sortedWeeks.map(week => applicationsPerWeek[week]);
