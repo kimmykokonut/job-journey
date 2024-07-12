@@ -101,7 +101,7 @@ export default function AddApplication({ onAddApplication }: AddApplicationProps
           <option value="Junior Web Developer">Junior Web Developer</option>
           <option value="QA Engineer">QA Engineer</option>
           <option value="Software Developer">Software Developer</option>
-          <option value="Software Developer">Software Developer</option>
+          <option value="Software Engineer">Software Engineer</option>
           <option value="Web Developer">Web Developer</option>
           <option value="Other">Other</option>
         </select>
@@ -125,8 +125,6 @@ export default function AddApplication({ onAddApplication }: AddApplicationProps
           <option value="oit">Out In Tech</option>
           <option value="silicon">Silicon Forest</option>
           <option value="website">Website</option>
-          <option value="other">Other</option>
-          <option value="other">Other</option>
           <option value="other">Other</option>
         </select>
       </div>
