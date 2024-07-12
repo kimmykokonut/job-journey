@@ -48,15 +48,24 @@ export default function Home() {
   }, []);
 
   const totalApplications = applicationData.length;
-  const firstDate = applicationData.length > 0 ? applicationData[0].Date : '';
-  const date = new Date(firstDate);
+  
   let formattedFirstDate = '';
-  if (isNaN(date.getTime())) {
-    console.error('Invalide date value');
-  } else {
-    const dateOptions = { dateStyle: 'long' as const };
-    formattedFirstDate = new Intl.DateTimeFormat('en-US', dateOptions).format(date);
-  }
+
+  if (totalApplications > 0) {
+    const date = new Date(applicationData[0].Date);
+    if (!isNaN(date.getTime())) {
+      const dateOptions = { dateStyle: 'long' as const };
+      formattedFirstDate = new Intl.DateTimeFormat('en-US', dateOptions).format(date);
+    } else {
+      console.error('Invalid date value:', applicationData[0].Date);
+    }
+  };
+
+
+
+  //   const dateOptions = { dateStyle: 'long' as const };
+  //   formattedFirstDate = new Intl.DateTimeFormat('en-US', dateOptions).format(date);
+  // }
 
   function getRandomQuote() {
     const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
