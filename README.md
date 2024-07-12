@@ -45,7 +45,7 @@ Built out of a desire to lighten the frustration with the saturated Junior Devel
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-0078d7.svg?style=for-the-badge&logo=visual-studio-code&logoColor=white)
 
 ## Known Bugs
-* None at this time
+* Currently adding new application data only updates the current browser state (refreshing the page resets it to the csv containing 103 entries) because there is no back end set up for this to save and maintain the data.  It's probably for the best so I don't have someone spamming my form.
 
 ## Getting Started
 
@@ -104,6 +104,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Stretch Goals
 * Add edit form to update/add to application status
 * Have option to display data as boring spreadsheet
+* I built this with dark mode in mind, it would be nice to add a slider and tweak the light mode a bit.
 
 ## Contact and Support
 
