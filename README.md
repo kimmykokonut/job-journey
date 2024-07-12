@@ -1,9 +1,10 @@
-# [Job Journey](https://kimmykokonut.github.io/job-journey/)
+# [Job Journey](https://job-journey-neon.vercel.app/)
 _by [Kim Robinson](https://github.com/kimmykokonut)_
 
 ---
 
 ![Homepage screenshot](./src/img/charts.png)
+hosted on [Vercel](https://job-journey-neon.vercel.app/)
 
 ---
 
@@ -27,7 +28,7 @@ _by [Kim Robinson](https://github.com/kimmykokonut)_
 ## About the Project
 
 ## Description
-Built out of a desire to lighten the frustration with the saturated Junior Developer market and to continue learning new technology. Job journey is a simple application where a user can enter their job search details into a form and see the results in a pie chart, bar chart or line graph.
+Built out of a desire to lighten the frustration with the saturated Junior Developer market and to continue learning new technology. Job journey is an application where a user can enter their job search details into a form and see the results in a pie chart, bar chart or line graph.
 
 ![Form fill](./src/img/form.png)
 
