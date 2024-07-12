@@ -104,7 +104,7 @@ export default function Home() {
 
       <p>{totalApplications} Applications since: {formattedFirstDate}</p>
     
-        <div className="flexContainer mb-32 text-center lg:mb-0">
+        <div className="flexContainer mb-24 text-center lg:mb-0">
         <div className="dataCard resultsPie border rounded">
           <StatusPie applicationData={applicationData} />
         </div>
@@ -114,10 +114,8 @@ export default function Home() {
         <div className="dataCard dateLine border rounded">
           <LineGraph applicationData={applicationData} />
         </div>
-        <div><a href="https://github.com/kimmykokonut/job-journey">see source code here</a></div>
       </div>
-      
-      
+      <div><a href="https://github.com/kimmykokonut/job-journey">see source code here</a></div>
     </main>
   );
 }
