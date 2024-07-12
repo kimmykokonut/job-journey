@@ -1,5 +1,5 @@
 import { Pie } from "react-chartjs-2";
-import { Chart, ArcElement, LayoutPosition, Title, ChartOptions } from "chart.js";
+import { Chart, ArcElement, Title, ChartOptions } from "chart.js";
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 Chart.register(ArcElement, ChartDataLabels, Title);
@@ -11,6 +11,7 @@ interface Application {
   Source: string;
   Status: string[];
 }
+
 interface StatusPieProps {
   applicationData: Application[];
 }

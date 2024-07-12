@@ -87,7 +87,6 @@ export default function Home() {
           </a>
         </div>
       </div>
-
       <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
         <h6 className="text-sm italic m-3">{quote} -{author}</h6>
       </div>
@@ -99,22 +98,19 @@ export default function Home() {
             {showForm ? 'Exit form' : 'Enter new job application data'}
           </button>
         </div>
-        {showForm && <AddApplication onAddApplication={addApplication}/>}
+        {showForm && <AddApplication onAddApplication={addApplication} />}
       </div>
-
       <p>{totalApplications} Applications since: {formattedFirstDate}</p>
-    
-        <div className="flexContainer mb-32 text-center lg:mb-0">
+      <div className="flexContainer mb-32 text-center lg:mb-0">
         <div className="dataCard resultsPie border rounded">
           <StatusPie applicationData={applicationData} />
         </div>
         <div className="dataCard titlesBar border rounded">
-          <TitleBar applicationData={applicationData}/>
+          <TitleBar applicationData={applicationData} />
         </div>
         <div className="dataCard dateLine border rounded">
           <LineGraph applicationData={applicationData} />
         </div>
-        
       </div>
     </main>
   );

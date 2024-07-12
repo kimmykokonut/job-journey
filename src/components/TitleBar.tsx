@@ -11,6 +11,7 @@ interface Application {
   Source: string;
   Status: string[];
 }
+
 interface AppProps {
   applicationData: Application[];
 }
