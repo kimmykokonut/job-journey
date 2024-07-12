@@ -114,8 +114,10 @@ export default function Home() {
         <div className="dataCard dateLine border rounded">
           <LineGraph applicationData={applicationData} />
         </div>
-        
+        <div><a href="https://github.com/kimmykokonut/job-journey">see source code here</a></div>
       </div>
+      
+      
     </main>
   );
 }
