@@ -30,7 +30,7 @@ const StatusPie: React.FC<StatusPieProps> = ({ applicationData }) => {
     labels: Object.keys(statusCounts),
     datasets: [{
       data: Object.values(statusCounts),
-      backgroundColor: ['#7c00ff', '#06b000', '#e6c200', '#0df0df', '#a24aff', '#1166a3'], // 6 status: nope, ghost, interview, takehome, hired, other
+      backgroundColor: ['#7c00ff', '#06b000', '#e6c200', '#0df0df', '#a24aff', '#1166a3'], 
     }],
   };
 
@@ -49,15 +49,6 @@ const StatusPie: React.FC<StatusPieProps> = ({ applicationData }) => {
           bottom: 10,
         },
       },
-      // legend not displaying?!
-      // legend: {
-      //   display: true,
-      //   position: 'right' as LayoutPosition,
-      //   labels: {
-      //     boxWidth: 20,
-      //     padding: 10,
-      //   }
-      // },
       datalabels: {
         color: '#fff',
         anchor: 'end',
@@ -68,7 +59,7 @@ const StatusPie: React.FC<StatusPieProps> = ({ applicationData }) => {
         formatter: (value: number, context: any) => {
           const label = context.chart.data.labels[context.dataIndex];
           const percent = +(value / totalCount * 100).toFixed(0);
-          if (percent < 3) return null; // Adjust threshold as needed
+          if (percent < 3) return null; 
           return `${label}: ${percent}%`; 
         },
         textStrokeColor: '#000',
@@ -76,7 +67,6 @@ const StatusPie: React.FC<StatusPieProps> = ({ applicationData }) => {
       }
     }
   }
-
 return <Pie data={data} options={options} />;
 }
 export default StatusPie;

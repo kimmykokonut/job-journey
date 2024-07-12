@@ -1,9 +1,12 @@
-# Job Journey
+# [Job Journey](https://kimmykokonut.github.io/job-journey/)
 _by [Kim Robinson](https://github.com/kimmykokonut)_
 
-<!-- hosted link here -->
+---
+
+![Homepage screenshot](./src/img/charts.png)
 
 ---
+
 ### <u>Jump to section</u>
 * <a href="#about-the-project">About the Project</a>
   * <a href="#description">Description</a>
@@ -17,14 +20,16 @@ _by [Kim Robinson](https://github.com/kimmykokonut)_
 * <a href="#license">License</a>
 ---
 
-![Homepage screenshot here](./src/assets/img/map.png)
+![Mobile view](./src/img/mobile.png)
 
 ---
 
 ## About the Project
 
 ## Description
-Built out of a desire to lighten the frustration with the saturated Junior Developer market and to continue learning new technology. Job journey is a simple application where a user can enter their job search details into a form and see the results in a chart form or table form.
+Built out of a desire to lighten the frustration with the saturated Junior Developer market and to continue learning new technology. Job journey is a simple application where a user can enter their job search details into a form and see the results in a pie chart, bar chart or line graph.
+
+![Form fill](./src/img/form.png)
 
 ## Built With
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
@@ -93,14 +98,11 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
   1. >File>Download>Comma separated values(.csv)
   2. Move .csv file into the public folder of this repository
   3. In page.tsx, line 19, update the file to match your file name and the d3 function will convert the .csv to an object for the charts to use.
+  4. Note: Make sure your Status is in double quotes ("Hired") because the code is set to handle this as an array of strings, as a job application may have more than one status (["Interview", "Hired"]) as built in the form to add new applications.
 
 ## Stretch Goals
-* Add pie chart labels
-* Add bar chart
-* Add line graph
-* Style to be responsive
-* Link to form to add new data-create form
-* Display data as table
+* Add edit form to update/add to application status
+* Have option to display data as boring spreadsheet
 
 ## Contact and Support
 
@@ -110,11 +112,3 @@ If you have any feedback or concerns,
 
 ## License
 GNU General Public License, see license.md for details
-
-
---------------
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

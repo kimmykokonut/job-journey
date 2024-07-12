@@ -59,7 +59,6 @@ const TitleBar: React.FC<AppProps> = ({ applicationData }) => {
       }
     }
   }
-
   return <Bar data={data} options={options} />;
 }
 export default TitleBar;

@@ -18,15 +18,17 @@ interface AppProps {
 const LineGraph: React.FC<AppProps> = ({ applicationData }) => {
 
   const getWeekStartDate = (date:Date) => {
-    const day = date.getDay(); //day of week. 0 = sun
-    const diff = date.getDate() - day; // diff curr date to last sun
+    //day of week. 0 = sun
+    const day = date.getDay(); 
+    // diff curr date to last sun
+    const diff = date.getDate() - day; 
     return new Date(date.setDate(diff));
   };
 
   const applicationsPerWeek = applicationData.reduce<Record<string, number>>((acc, application) => {
     const date = new Date(application.Date);
     const weekStart = getWeekStartDate(date);
-    const weekStartKey = weekStart.toISOString().split('T')[0]; //start week as key
+    const weekStartKey = weekStart.toISOString().split('T')[0]; 
 
     acc[weekStartKey] = (acc[weekStartKey] || 0) + 1;
     return acc;
@@ -77,7 +79,6 @@ const LineGraph: React.FC<AppProps> = ({ applicationData }) => {
       }
     }
   }
-
   return <Line data={data} options={options} />;
 }
 export default LineGraph;
