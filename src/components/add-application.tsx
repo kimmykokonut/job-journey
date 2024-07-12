@@ -180,5 +180,4 @@ export default function AddApplication({ onAddApplication }: AddApplicationProps
       </div>
     </form>
   );
-
 }

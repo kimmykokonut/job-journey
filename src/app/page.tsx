@@ -6,7 +6,6 @@ import StatusPie from "@/components/StatusPie";
 import TitleBar from "@/components/TitleBar";
 import AddApplication from "@/components/add-application";
 import quotes from "./quotes";
-import { split } from "postcss/lib/list";
 import LineGraph from "@/components/LineGraph";
 
 interface Application {
@@ -60,12 +59,6 @@ export default function Home() {
       console.error('Invalid date value:', applicationData[0].Date);
     }
   };
-
-
-
-  //   const dateOptions = { dateStyle: 'long' as const };
-  //   formattedFirstDate = new Intl.DateTimeFormat('en-US', dateOptions).format(date);
-  // }
 
   function getRandomQuote() {
     const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
@@ -123,8 +116,6 @@ export default function Home() {
         </div>
         
       </div>
-      <p>See data as a boring chart link</p>
-
     </main>
   );
 }
